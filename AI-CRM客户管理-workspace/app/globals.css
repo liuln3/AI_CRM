@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colors */
+  --color-apple: #0071e3;
+  --color-link: #0066cc;
+  --color-signal: #2997ff;
+  --color-carbon: #1d1d1f;
+  --color-frost: #f5f5f7;
+  --color-ice: #f4f8fb;
+  --color-smoke: #333333;
+  --color-graphite: #474747;
+  --color-ash: #707070;
+  --color-mist: #858585;
+  --color-onyx: #000000;
+  --color-pebble: #e2e2e5;
+  --color-hairline: #d2d2d7;
+
+  /* Radii */
+  --radius-cards: 8px;
+  --radius-buttons: 980px;
+
+  /* Shadow */
+  --shadow-xl: rgba(0, 0, 0, 0.22) 3px 5px 30px 0px;
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--color-frost);
+    color: var(--color-carbon);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+      "SF Pro Display", Inter, system-ui, "Segoe UI", "PingFang SC",
+      "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.016em;
+  }
+
+  ::selection {
+    background: rgba(0, 113, 227, 0.15);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d2d2d7;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer components {
+  /* Filled pill — the single filled action color, used sparingly */
+  .btn-filled {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full bg-apple px-4 py-2 text-[14px] font-normal text-white transition-colors hover:bg-[#0077ed] disabled:opacity-40;
+  }
+  .btn-filled-lg {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-apple px-[15px] py-[11px] text-[17px] font-normal text-white transition-colors hover:bg-[#0077ed] disabled:opacity-40;
+  }
+  /* Outlined pill — secondary action, pairs with filled */
+  .btn-outlined {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full border border-link px-4 py-2 text-[14px] font-normal text-link transition-colors hover:bg-ice disabled:opacity-40;
+  }
+  .btn-outlined-lg {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-link px-[15px] py-[11px] text-[17px] font-normal text-link transition-colors hover:bg-ice disabled:opacity-40;
+  }
+  /* Ghost link — tertiary / inline */
+  .btn-ghost {
+    @apply text-link hover:underline;
+  }
+  /* Card — hairline border, no shadow, surface shift only */
+  .card {
+    @apply rounded-lg border border-hairline bg-white;
+  }
+  /* Form input — 8px radius, hairline border, frost fill, apple focus ring */
+  .input {
+    @apply rounded-lg border border-hairline bg-frost px-3 py-2 text-[14px] text-carbon outline-none transition placeholder:text-mist focus:border-apple focus:bg-white focus:ring-2 focus:ring-apple/20;
+  }
+  /* Tag — fully rounded chip */
+  .tag {
+    @apply inline-flex items-center rounded-full px-2 py-0.5 text-[12px] font-normal;
+  }
+}
+
+/* Inline markdown report rendering (Agent panel) */
+.report-md h3 {
+  @apply text-[15px] font-semibold mt-3 mb-1 text-carbon;
+}
+.report-md h4 {
+  @apply text-[14px] font-semibold mt-2 mb-1 text-carbon;
+}
+.report-md strong {
+  @apply font-semibold text-carbon;
+}
+.report-md blockquote {
+  @apply border-l-2 border-hairline pl-2 text-mist text-[12px] my-1;
+}
