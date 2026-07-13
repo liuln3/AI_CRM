@@ -1,6 +1,8 @@
 node_modules
 .next
-data/
-*.db
+data/*
+!data/crm.db
+*.db-wal
+*.db-shm
 .env*.local
 .DS_Store

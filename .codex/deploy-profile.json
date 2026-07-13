@@ -1,0 +1,35 @@
+{
+  "profile_version": 1,
+  "initialized": true,
+  "project_name": "AI_CRM",
+  "github_remote": "git@github.com:liuln3/AI_CRM.git",
+  "server": {
+    "ssh_target": "root@39.105.175.23",
+    "ssh_port": "22",
+    "project_dir": "/www/wwwroot/AI_CRM",
+    "deploy_script": "/www/wwwroot/AI_CRM/scripts/deploy-server.sh"
+  },
+  "app_subdir": "AI-CRM客户管理-workspace",
+  "app_port": "3001",
+  "domain": "crm.ibelieveinfo.com.cn",
+  "health_path": "/login",
+  "process": {
+    "manager": "pm2",
+    "name": "ai-crm"
+  },
+  "data": {
+    "track_sqlite": true,
+    "sqlite_path": "AI-CRM客户管理-workspace/data/crm.db",
+    "sync_on_first_deploy": true,
+    "sync_on_incremental_deploy": false,
+    "exclude": [
+      "AI-CRM客户管理-workspace/data/*.db-wal",
+      "AI-CRM客户管理-workspace/data/*.db-shm"
+    ]
+  },
+  "notes": {
+    "public_url": "http://crm.ibelieveinfo.com.cn/login",
+    "bt_reverse_proxy_target": "http://127.0.0.1:3001",
+    "secrets_policy": "Do not commit .env.local or API keys. Configure runtime secrets on the server."
+  }
+}
